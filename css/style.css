@@ -80,7 +80,7 @@ section.container {
 .header-logo-title {
     font-size: 1.8rem;
 }
-ul.header-menu {
+ul.header-menu { /* 미디어 쿼리 적용시 셀렉터 형식이 동일해야함 !!*/
     display: flex;
     gap: 4px;
 }
@@ -91,6 +91,15 @@ a.header-menu-item {
 a.header-menu-item.active {
     border: 1px solid var(--color-accent);
     border-radius: 4px;
+}
+.header-toggle {
+    display: none;
+    position: absolute;
+    top: 1.3rem;
+    right: 1rem;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: 1.5rem;
 }
 /*----- Header end ----*/
 
@@ -367,3 +376,190 @@ a.header-menu-item.active {
 /*----- footer end ----*/
 
 
+/*********************************************
+    media screen : 1px ~ 1000px
+*********************************************/
+@media screen and (max-width:1000px) {
+    .header {
+        flex-direction: column;
+        align-items: start;
+    }
+    ul.header-menu { 
+        display: none;
+    }
+    .header-toggle {
+        display: block;
+    }
+    section { 
+        padding: 3rem;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .description {
+        font-size: 1rem;
+    }
+    #home {
+        padding: 5rem 3rem;
+    }
+    .home-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .majors {
+        flex-direction: column;
+        align-items: center;
+    }
+    .major {
+        width: 30rem;
+    }
+    .job {
+        justify-content: center;
+    }
+    .skills {
+        grid-template-columns: 1fr;
+    }
+    .categories {
+        flex-direction: column;
+    }
+    .category {
+        width: 80%;
+    }
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .testimonial {
+        flex-direction: column;
+    }
+    .testimonial:nth-child(even) .testimonial-img {
+        order: 0;
+    }
+    .arrow-up {
+        bottom: 1rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+/*********************************************
+    media screen : 1px ~ 600px
+*********************************************/
+@media screen and (max-width:600px){
+    .projects {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/*********************************************
+    media screen : 1px ~ 412px
+*********************************************/
+@media screen and (max-width: 412px) {
+    #home, #about, #skills, #work, #testimonial, #contact {
+        scroll-margin-top: 50px;
+    }
+    .header {
+        flex-direction: column; 
+        align-items: start;
+        padding: 0.8rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    ul.header-menu {
+        display: none;
+    }
+    ul.header-menu.open {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        position: absolute;
+        right: 0;
+        padding: 1rem 0.5rem;
+        background-color: #1b1e26;
+    }
+    ul.header-menu.open li {
+        width: 100%;
+        text-align: right; 
+    }
+    ul.header-menu.open li:hover {
+        background-color: #999;
+        padding: 0.5rem 0;
+    }
+    a.header-menu-item.active {
+        border: none;
+    }
+    .header-toggle {
+        display: block;
+    }
+    section, footer {
+        padding: 2rem 1rem;
+    }
+    .title {
+        font-size: 1.8rem;
+    }
+    .description {
+        font-size: 0.95rem;
+    }
+
+    #home {
+        padding: 5rem 1rem;
+    }
+    .home-avatar {
+        width: 180px;
+        height: 180px;
+    }
+    .home-title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    .home-description {
+        font-size: 1rem;
+    }
+    .majors {
+        flex-direction: column;
+        align-items: center;
+    }
+    .major {
+        width: 100%;       
+    }
+    .job {
+        justify-content: center;
+    }
+    .skills {
+        grid-template-columns: 1fr;
+    }
+    .categories {
+        flex-direction: column;
+        align-items: center;
+    }
+    .category {
+        width: 90%;
+        padding: 0.5rem 1rem;   
+    }
+    .projects {
+        grid-template-columns: repeat(1, 1fr);  
+    }
+    .testimonials {
+        margin: 1rem;
+    }
+    .testimonial {
+        flex-direction: column;
+    }
+    .testimonial:nth-child(even) .testimonial-img {
+        order: 0;
+    }
+    .testimonial-img {
+        width: 100px;
+        height: 100px;
+    }
+    .arrow-up {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
